@@ -168,8 +168,40 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   padding: 1rem;
 }
 
+/* Galeria */
+.gallery-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.gallery-item {
+  aspect-ratio: 1 / 1;
+  background: var(--bg-alt);
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Serviços */
 .servicos { background: var(--bg-alt); }
+
+.servicos-intro {
+  max-width: 620px;
+  margin: 0 auto;
+}
 
 .cards {
   margin-top: 2.5rem;
@@ -192,6 +224,30 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   letter-spacing: 0.08em;
   color: var(--accent-dark);
 }
+
+.addons {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.addon {
+  background: var(--card-bg);
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.addon h4 {
+  margin: 0 0 0.4em;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-dark);
+}
+
+.addon p { margin: 0; font-size: 0.95rem; }
 
 /* Depoimentos */
 .testimonial-placeholder {
@@ -235,11 +291,15 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 @media (max-width: 800px) {
   .sobre-grid { grid-template-columns: 1fr; }
   .cards { grid-template-columns: 1fr; }
+  .addons { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .nav nav { gap: 1rem; }
 }
 
 @media (max-width: 520px) {
   .cards { grid-template-columns: 1fr; }
+  .addons { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .nav-inner { flex-direction: column; gap: 0.8rem; align-items: flex-start; }
   .section { padding: 3.5rem 1.25rem; }
 }
