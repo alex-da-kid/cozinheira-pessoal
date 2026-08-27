@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -19,6 +19,7 @@
       <a href="#galeria">Galeria</a>
       <a href="#servicos">Serviços</a>
       <a href="#depoimentos">Depoimentos</a>
+      <a href="https://www.instagram.com/alinedsza" target="_blank" rel="noopener">Instagram</a>
       <a href="#contato" class="nav-cta">Agendar</a>
     </nav>
   </div>
@@ -40,8 +41,8 @@
 
 <section id="sobre" class="section sobre">
   <div class="section-inner sobre-grid">
-    <div class="sobre-image" aria-hidden="true">
-      <span>Foto de um prato aqui</span>
+    <div class="sobre-image">
+      <img src="images/sobre.jpeg" alt="Aline de Souza sorrindo ao ar livre">
     </div>
     <div class="sobre-text">
       <p class="eyebrow">Sobre</p>
@@ -64,13 +65,6 @@
         de lembrar é um jantar particular que preparei lá para nove
         convidadas — do planejamento ao prato na mesa.
       </p>
-      <!-- Substitua cada .nz-photo por <img src="..." alt="..."> quando as fotos do jantar estiverem prontas. -->
-      <div class="nz-photos">
-        <div class="nz-photo" aria-hidden="true"><span>Foto do jantar</span></div>
-        <div class="nz-photo" aria-hidden="true"><span>Foto do jantar</span></div>
-        <div class="nz-photo" aria-hidden="true"><span>Foto do jantar</span></div>
-      </div>
-      <p class="small nz-photos-caption">Fotos do jantar na Nova Zelândia — em breve.</p>
     </div>
   </div>
 </section>
@@ -79,15 +73,7 @@
   <div class="section-inner">
     <p class="eyebrow center">Galeria</p>
     <h2 class="center">Um pouco do que sai da minha cozinha</h2>
-    <!-- Substitua cada .gallery-item por <img src="..." alt="..."> quando as fotos estiverem prontas. -->
-    <div class="gallery-grid">
-      <div class="gallery-item" aria-hidden="true"><span>Foto aqui</span></div>
-      <div class="gallery-item" aria-hidden="true"><span>Foto aqui</span></div>
-      <div class="gallery-item" aria-hidden="true"><span>Foto aqui</span></div>
-      <div class="gallery-item" aria-hidden="true"><span>Foto aqui</span></div>
-      <div class="gallery-item" aria-hidden="true"><span>Foto aqui</span></div>
-      <div class="gallery-item" aria-hidden="true"><span>Foto aqui</span></div>
-    </div>
+    <div class="gallery-scroll" id="galeria-track"></div>
   </div>
 </section>
 
@@ -137,9 +123,23 @@
   <div class="section-inner">
     <p class="eyebrow center">Depoimentos</p>
     <h2 class="center">O que dizem os clientes</h2>
-    <div class="testimonial-placeholder">
-      <p>Espaço reservado para depoimentos de clientes.</p>
-      <p class="small">Adicione aqui após os primeiros atendimentos.</p>
+    <div class="testimonials-grid">
+      <blockquote class="testimonial">
+        <p>“O que mais gostei foi a praticidade. Não preciso cozinhar todos os dias e ainda consigo manter uma alimentação variada.”</p>
+        <cite>Patrícia N.</cite>
+      </blockquote>
+      <blockquote class="testimonial">
+        <p>“As refeições são deliciosas e facilitam muito minha vida. Consigo manter uma alimentação saudável mesmo nos dias mais corridos.”</p>
+        <cite>Rafael C.</cite>
+      </blockquote>
+      <blockquote class="testimonial">
+        <p>“Ter as bases prontas na geladeira mudou minha semana. Economizo tempo, evito desperdício e como muito melhor.”</p>
+        <cite>André S.</cite>
+      </blockquote>
+      <blockquote class="testimonial">
+        <p>“Eu vivia pedindo delivery durante a semana. Agora tenho refeições prontas e equilibradas, sem precisar pensar em nada.”</p>
+        <cite>Gustavo R.</cite>
+      </blockquote>
     </div>
   </div>
 </section>
@@ -156,10 +156,70 @@
 
 <footer class="footer">
   <p>&copy; <span id="year"></span> Aline de Souza — Cozinheira Pessoal &middot; São Paulo, Brasil</p>
+  <p><a href="https://www.instagram.com/alinedsza" target="_blank" rel="noopener">@alinedsza no Instagram</a></p>
 </footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" type="button" aria-label="Fechar">&times;</button>
+  <button class="lightbox-nav lightbox-prev" type="button" aria-label="Foto anterior">&#8249;</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav lightbox-next" type="button" aria-label="Próxima foto">&#8250;</button>
+</div>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  var galeriaImages = ["WhatsApp Image 2026-08-26 at 21.03.51.jpeg","WhatsApp Image 2026-08-26 at 21.03.49 (5).jpeg","WhatsApp Image 2026-08-26 at 21.03.49 (4).jpeg","WhatsApp Image 2026-08-26 at 21.03.51 (2).jpeg","WhatsApp Image 2026-08-26 at 21.04.00 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.49.jpeg","WhatsApp Image 2026-08-26 at 21.06.17 (2).jpeg","WhatsApp Image 2026-08-26 at 21.04.04 (1).jpeg","WhatsApp Image 2026-08-26 at 21.04.01 (4).jpeg","WhatsApp Image 2026-08-26 at 21.04.02 (2).jpeg","WhatsApp Image 2026-08-26 at 21.04.04 (3).jpeg","WhatsApp Image 2026-08-26 at 21.04.04 (4).jpeg","WhatsApp Image 2026-08-26 at 21.06.20.jpeg","WhatsApp Image 2026-08-26 at 21.04.03.jpeg","WhatsApp Image 2026-08-26 at 21.04.00.jpeg","WhatsApp Image 2026-08-26 at 21.04.01.jpeg","WhatsApp Image 2026-08-26 at 21.03.50 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.50 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.51 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.47 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.47.jpeg","WhatsApp Image 2026-08-26 at 21.03.50.jpeg","WhatsApp Image 2026-08-26 at 21.03.48 (4).jpeg","WhatsApp Image 2026-08-26 at 21.04.01 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.53 (4).jpeg","WhatsApp Image 2026-08-26 at 21.03.57 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.54.jpeg","WhatsApp Image 2026-08-26 at 21.03.58 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.57 (3).jpeg","WhatsApp Image 2026-08-26 at 21.04.00 (4).jpeg","WhatsApp Image 2026-08-26 at 21.06.19 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.45 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.45 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.45.jpeg","WhatsApp Image 2026-08-26 at 21.03.46 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.46 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.46 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.46 (4).jpeg","WhatsApp Image 2026-08-26 at 21.03.46 (5).jpeg","WhatsApp Image 2026-08-26 at 21.03.46.jpeg","WhatsApp Image 2026-08-26 at 21.03.47 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.47 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.48 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.48 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.48 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.48.jpeg","WhatsApp Image 2026-08-26 at 21.03.49 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.49 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.49 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.50 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.50 (4).jpeg","WhatsApp Image 2026-08-26 at 21.03.50 (5).jpeg","WhatsApp Image 2026-08-26 at 21.03.51 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.51 (4).jpeg","WhatsApp Image 2026-08-26 at 21.03.51 (5).jpeg","WhatsApp Image 2026-08-26 at 21.03.52 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.52 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.52 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.52 (4).jpeg","WhatsApp Image 2026-08-26 at 21.03.52 (5).jpeg","WhatsApp Image 2026-08-26 at 21.03.52.jpeg","WhatsApp Image 2026-08-26 at 21.03.53 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.53 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.53 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.53.jpeg","WhatsApp Image 2026-08-26 at 21.03.54 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.54 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.54 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.54 (4).jpeg","WhatsApp Image 2026-08-26 at 21.03.55 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.55 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.55 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.55 (4).jpeg","WhatsApp Image 2026-08-26 at 21.03.55.jpeg","WhatsApp Image 2026-08-26 at 21.03.56 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.56 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.56 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.56 (4).jpeg","WhatsApp Image 2026-08-26 at 21.03.56.jpeg","WhatsApp Image 2026-08-26 at 21.03.57 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.57 (4).jpeg","WhatsApp Image 2026-08-26 at 21.03.57.jpeg","WhatsApp Image 2026-08-26 at 21.03.58 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.58 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.58.jpeg","WhatsApp Image 2026-08-26 at 21.03.59 (1).jpeg","WhatsApp Image 2026-08-26 at 21.03.59 (2).jpeg","WhatsApp Image 2026-08-26 at 21.03.59 (3).jpeg","WhatsApp Image 2026-08-26 at 21.03.59 (4).jpeg","WhatsApp Image 2026-08-26 at 21.03.59.jpeg","WhatsApp Image 2026-08-26 at 21.04.00 (1).jpeg","WhatsApp Image 2026-08-26 at 21.04.00 (2).jpeg","WhatsApp Image 2026-08-26 at 21.04.01 (1).jpeg","WhatsApp Image 2026-08-26 at 21.04.01 (2).jpeg","WhatsApp Image 2026-08-26 at 21.04.02 (1).jpeg","WhatsApp Image 2026-08-26 at 21.04.02 (3).jpeg","WhatsApp Image 2026-08-26 at 21.04.02 (4).jpeg","WhatsApp Image 2026-08-26 at 21.04.02.jpeg","WhatsApp Image 2026-08-26 at 21.04.03 (1).jpeg","WhatsApp Image 2026-08-26 at 21.04.03 (2).jpeg","WhatsApp Image 2026-08-26 at 21.04.03 (3).jpeg","WhatsApp Image 2026-08-26 at 21.04.04 (2).jpeg","WhatsApp Image 2026-08-26 at 21.04.04.jpeg","WhatsApp Image 2026-08-26 at 21.06.16 (1).jpeg","WhatsApp Image 2026-08-26 at 21.06.16.jpeg","WhatsApp Image 2026-08-26 at 21.06.17 (1).jpeg","WhatsApp Image 2026-08-26 at 21.06.17 (3).jpeg","WhatsApp Image 2026-08-26 at 21.06.17 (4).jpeg","WhatsApp Image 2026-08-26 at 21.06.17.jpeg","WhatsApp Image 2026-08-26 at 21.06.18 (1).jpeg","WhatsApp Image 2026-08-26 at 21.06.18 (2).jpeg","WhatsApp Image 2026-08-26 at 21.06.18 (3).jpeg","WhatsApp Image 2026-08-26 at 21.06.18 (4).jpeg","WhatsApp Image 2026-08-26 at 21.06.18 (5).jpeg","WhatsApp Image 2026-08-26 at 21.06.18.jpeg","WhatsApp Image 2026-08-26 at 21.06.19 (1).jpeg","WhatsApp Image 2026-08-26 at 21.06.19 (2).jpeg","WhatsApp Image 2026-08-26 at 21.06.19 (4).jpeg","WhatsApp Image 2026-08-26 at 21.06.19 (5).jpeg","WhatsApp Image 2026-08-26 at 21.06.19.jpeg","WhatsApp Image 2026-08-26 at 21.06.20 (1).jpeg","WhatsApp Image 2026-08-26 at 21.06.20 (2).jpeg","WhatsApp Image 2026-08-26 at 21.06.20 (4).jpeg","WhatsApp Image 2026-08-26 at 21.06.21 (1).jpeg","WhatsApp Image 2026-08-26 at 21.06.21 (2).jpeg","WhatsApp Image 2026-08-26 at 21.06.21 (3).jpeg","WhatsApp Image 2026-08-26 at 21.06.21 (4).jpeg","WhatsApp Image 2026-08-26 at 21.06.21.jpeg","WhatsApp Image 2026-08-26 at 21.06.22 (1).jpeg","WhatsApp Image 2026-08-26 at 21.06.22 (2).jpeg","WhatsApp Image 2026-08-26 at 21.06.22 (3).jpeg","WhatsApp Image 2026-08-26 at 21.06.22 (4).jpeg","WhatsApp Image 2026-08-26 at 21.06.22 (5).jpeg","WhatsApp Image 2026-08-26 at 21.06.22.jpeg","WhatsApp Image 2026-08-26 at 21.06.23 (1).jpeg","WhatsApp Image 2026-08-26 at 21.06.23 (2).jpeg","WhatsApp Image 2026-08-26 at 21.06.23 (3).jpeg","WhatsApp Image 2026-08-26 at 21.06.23 (4).jpeg","WhatsApp Image 2026-08-26 at 21.06.23.jpeg","WhatsApp Image 2026-08-26 at 21.06.24 (1).jpeg","WhatsApp Image 2026-08-26 at 21.06.24.jpeg"];
+
+  var track = document.getElementById('galeria-track');
+  galeriaImages.forEach(function (name, i) {
+    var item = document.createElement('div');
+    item.className = 'gallery-tile';
+    var img = document.createElement('img');
+    img.src = 'images/comidas/' + encodeURIComponent(name);
+    img.alt = 'Foto de um prato preparado pela Aline';
+    img.loading = 'lazy';
+    item.appendChild(img);
+    item.addEventListener('click', function () { openLightbox(i); });
+    track.appendChild(item);
+  });
+
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+  var currentIndex = 0;
+
+  function updateLightboxImage() {
+    lightboxImg.src = 'images/comidas/' + encodeURIComponent(galeriaImages[currentIndex]);
+  }
+  function openLightbox(index) {
+    currentIndex = index;
+    updateLightboxImage();
+    lightbox.classList.add('active');
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+  }
+  function showNext() {
+    currentIndex = (currentIndex + 1) % galeriaImages.length;
+    updateLightboxImage();
+  }
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + galeriaImages.length) % galeriaImages.length;
+    updateLightboxImage();
+  }
+
+  document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  document.querySelector('.lightbox-next').addEventListener('click', showNext);
+  document.querySelector('.lightbox-prev').addEventListener('click', showPrev);
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
 </script>
 
 </body>
